@@ -18,7 +18,7 @@ import com.parse.SignUpCallback;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    EditText Username, Password, DOB;
+    EditText Username, Password, DOB, Email;
     Button Signup;
 
     @Override
@@ -29,7 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
         //Assigning Values
         Username = findViewById(R.id.User);
         Password = findViewById(R.id.Pass);
-
+        Email = findViewById(R.id.Email);
         Signup = findViewById(R.id.SignUp);
 
         //Registry
@@ -38,9 +38,13 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String username = Username.getText().toString();
                 String password = Password.getText().toString();
+                String email = Email.getText().toString();
+
+                //Parse User Registration
                 ParseUser user = new ParseUser();
                 user.setUsername(username);
                 user.setPassword(password);
+                user.setEmail(email);
 
                 /* ADD DATE OF BIRTH */
 

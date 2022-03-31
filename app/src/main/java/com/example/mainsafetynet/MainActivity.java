@@ -8,11 +8,16 @@ import androidx.fragment.app.FragmentManager;
 import android.os.Bundle;
 
 import com.example.mainsafetynet.fragments.MapsFragment;
+import com.example.mainsafetynet.fragments.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
     final FragmentManager fragmentManager = getSupportFragmentManager();
+    Fragment Map;
+    Fragment Setting;
     BottomNavigationView bottomNavigationView;
 
     @Override
@@ -20,20 +25,34 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        //Assigning Values
         bottomNavigationView = findViewById(R.id.bottom_navigation);
+        Map = new MapsFragment();
+        Setting = new SettingsFragment();
 
+        fragmentManager.beginTransaction()
+                .add(R.id.flContainer,Setting)
+                .add(R.id.flContainer,Map)
+                .commit();
         //Fragment Navigation
         bottomNavigationView.setOnItemSelectedListener(item -> {
             Fragment fragment;
             switch (item.getItemId()){
                 case R.id.Home:
                 default:
-                    fragment = new MapsFragment();
+                    fragmentManager.beginTransaction()
+                            .show(Map)
+                            .hide(Setting)
+                            .commit();
+                    break;
+                case R.id.Settings:
+                    fragmentManager.beginTransaction()
+                            .show(Setting)
+                            .hide(Map)
+                            .commit();
                     break;
             }
 
-            fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
+
             return true;
         });
 

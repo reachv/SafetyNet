@@ -44,7 +44,6 @@ public class LoginActivity extends AppCompatActivity {
         if(ParseUser.getCurrentUser() != null){
             goMainactivity();
         }
-
         //Logging In
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,12 +83,17 @@ public class LoginActivity extends AppCompatActivity {
                                 Manifest.permission.ACCESS_FINE_LOCATION, false);
                         Boolean coarseLocationGranted = result.getOrDefault(
                                 Manifest.permission.ACCESS_COARSE_LOCATION,false);
+                        Boolean sendSmS = result.getOrDefault(
+                                Manifest.permission.SEND_SMS, false);
                         if (fineLocationGranted != null && fineLocationGranted) {
                             // Precise location access granted.
                         } else if (coarseLocationGranted != null && coarseLocationGranted) {
                             // Only approximate location access granted.
-                        } else {
-                            // No location access granted.
+                        } else if(sendSmS != null && sendSmS){
+                            //Soft and Hard ping permissions
+                        }
+                        else{
+
                         }
                     }
             );
@@ -103,7 +107,8 @@ public class LoginActivity extends AppCompatActivity {
         }else{
             locationPermissionRequest.launch(new String[] {
                     Manifest.permission.ACCESS_FINE_LOCATION,
-                    Manifest.permission.ACCESS_COARSE_LOCATION
+                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                    Manifest.permission.SEND_SMS
             });
         }
 
