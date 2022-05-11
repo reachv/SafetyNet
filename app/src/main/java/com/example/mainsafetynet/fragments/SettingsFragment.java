@@ -23,6 +23,7 @@ public class SettingsFragment extends Fragment {
     EditText password;
     EditText email;
     TextView ephone;
+    TextView EmergencyContact;
     Button save;
 
 

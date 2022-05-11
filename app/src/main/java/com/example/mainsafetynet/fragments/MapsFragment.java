@@ -27,6 +27,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.mainsafetynet.DirectionsJSONParser;
+import com.example.mainsafetynet.SettingsStuff.Econtact;
 import com.example.mainsafetynet.R;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -38,7 +39,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
-import com.parse.Parse;
 import com.parse.ParseUser;
 
 import org.json.JSONObject;
@@ -249,9 +249,9 @@ public class MapsFragment extends Fragment implements LocationListener {
     }
 
     void EmergencyContactHARD(){
-        //Hard Ping for Emergency Services
-        smsManager.sendTextMessage(econt, null, SOFTPING, null, null);
-        Log.e("Emergency Contact Hard", "Sent");
+        Intent i = new Intent(getActivity(), Econtact.class);
+        startActivity(i);
+        mMarkerPoints.clear();
     }
 
     @Override
