@@ -18,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MainSafetyNet">
         <activity
+            android:name=".SettingsStuff.SoftEcontPhoneNumbers"
+            android:exported="true" />
+        <activity
             android:name=".SettingsStuff.Econtact"
             android:exported="true" />
         <!--

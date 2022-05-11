@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsStuff.SoftEcontPhoneNumbers">
+
+    <EditText
+        android:id="@+id/PhoneNumberSEC"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="0dp"
+        android:layout_toStartOf="@+id/SaveSEC"
+        android:ems="10"
+        android:hint="Phone Number"
+        android:inputType="phone"
+        tools:layout_editor_absoluteY="558dp" />
+
+    <Button
+        android:id="@+id/SaveSEC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:text="Button"
+        tools:layout_editor_absoluteX="312dp"
+        tools:layout_editor_absoluteY="554dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSEC"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/PhoneNumberSEC"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="0dp" />
+</RelativeLayout>
