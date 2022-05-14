@@ -1,4 +1,4 @@
-package com.example.mainsafetynet;
+package com.example.mainsafetynet.SettingsStuff;
 
 import com.google.android.gms.maps.model.LatLng;
 

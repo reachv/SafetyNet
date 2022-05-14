@@ -36,4 +36,12 @@
         android:layout_above="@+id/PhoneNumberSEC"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="0dp" />
+
+    <Button
+        android:id="@+id/DoneSEPH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:text="Done" />
 </RelativeLayout>

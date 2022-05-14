@@ -1,7 +1,8 @@
-package com.example.mainsafetynet;
+package com.example.mainsafetynet.SettingsStuff;
 
 import android.app.Application;
 
+import com.example.mainsafetynet.BuildConfig;
 import com.parse.Parse;
 
 public class ParseApp extends Application {

@@ -1,14 +1,17 @@
 package com.example.mainsafetynet.SettingsStuff;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.mainsafetynet.MainActivity;
 import com.example.mainsafetynet.R;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -22,7 +25,7 @@ public class SoftEcontPhoneNumbers extends AppCompatActivity {
     ParseUser user = ParseUser.getCurrentUser();
     List<String> contacts;
     EditText phonenumbers;
-    Button save;
+    Button save, done;
     RecyclerView recyclerView;
     PSECadapter adapter;
 
@@ -35,6 +38,7 @@ public class SoftEcontPhoneNumbers extends AppCompatActivity {
         save = findViewById(R.id.SaveSEC);
         recyclerView = findViewById(R.id.rvSEC);
         contacts = new ArrayList<>();
+        done = findViewById(R.id.DoneSEPH);
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,14 +49,23 @@ public class SoftEcontPhoneNumbers extends AppCompatActivity {
                    @Override
                    public void done(ParseException e) {
                        if(e != null) {
-                           Log.e("SoftEcontPhoneNumbers", "48" + e);
+                           Log.e("SoftEcontPhoneNumbers", "52" + e);
                        }
                    }
                });
             }
         });
+
+        done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         adapter = new PSECadapter(contacts);
         recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
 
     }
 }

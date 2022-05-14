@@ -26,7 +26,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.mainsafetynet.DirectionsJSONParser;
+import com.example.mainsafetynet.SettingsStuff.DirectionsJSONParser;
 import com.example.mainsafetynet.SettingsStuff.Econtact;
 import com.example.mainsafetynet.R;
 import com.google.android.gms.maps.CameraUpdate;
